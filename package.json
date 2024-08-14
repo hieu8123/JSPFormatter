@@ -1,0 +1,68 @@
+{
+  "name": "jsp-support",
+  "displayName": "JSP Support",
+  "description": "Provides support for JSP files, including syntax highlighting and formatting.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "categories": [
+    "Languages",
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:jsp"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "jsp",
+        "extensions": [
+          ".jsp"
+        ],
+        "aliases": [
+          "JSP",
+          "jsp"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "jsp",
+        "scopeName": "text.html.jsp",
+        "path": "./syntaxes/jsp.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "extension.formatJsp",
+        "title": "Format JSP File"
+      }
+    ],
+    "configurationDefaults": {
+      "[jsp]": {
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/your-repository.git"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.50.0",
+    "typescript": "^4.0.3",
+    "vscode-test": "^1.4.0"
+  },
+  "dependencies": {
+    "jsp-support": "file:"
+  }
+}
